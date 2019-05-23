@@ -7,7 +7,13 @@ class CLI
     puts "       "
     html = open("https://www.feelcrystals.com.au/crystal-meanings/")
     doc = Nokogiri::HTML(html)
-    doc.css(".product-category")[0].children[1].attr("href") 
+    doc.css(".product-category").each do |crys| 
+    
+      crystal = Crystal.new 
+      crystal.name = crys.css("h3").text.strip
+      crystal.url = crys.children[1].attr("href")
+    end 
+    binding.pry 
   end 
 
 end 
