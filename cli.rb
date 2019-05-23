@@ -5,6 +5,8 @@ class CLI
     puts "      "
     puts "-----------"
     puts "       "
+    html = open("https://www.feelcrystals.com.au/crystal-meanings/")
+    doc = Nokogiri::HTML(html)
   end 
 
 end 
